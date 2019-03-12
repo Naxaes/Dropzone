@@ -3,7 +3,7 @@
 
 using uint = unsigned;
 
-constexpr unsigned PAGE_SIZE = 4096;
+constexpr unsigned PAGE_SIZE = 4096;  // 4096 = 64 * 64 = 8 * 8 * 8 * 8 = 2^12
 
 
 template <typename Type, uint n = PAGE_SIZE>
@@ -14,6 +14,9 @@ struct PoolAllocator
 
     Type content[element_capacity] = {};
     uint elements_allocated = 0;
+
+    inline Type* begin() { return &content[0]; }
+    inline Type* end()   { return &content[element_capacity]; }
 };
 
 

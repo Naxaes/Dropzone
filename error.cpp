@@ -34,6 +34,6 @@ void AssertImplementation(bool status, const char* statement, const char* file, 
             statement, file, line, buffer
     );
 
-    if (TERMINATE_ON_ASSERTION_FAILURE)
+    if constexpr (TERMINATE_ON_ASSERTION_FAILURE)
         exit(-1);
 }
